@@ -1,0 +1,281 @@
+/* PARALLAX SCROLLING EXPERIMENT
+   Master Styles
+   Author: Jonathan Nicol (f6design.com)
+*****************************************************************/
+
+
+/* Global reset
+   http://meyerweb.com/eric/tools/css/reset/ 
+*****************************************************************/
+/* Reset default styles for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'pixel';
+  }
+/* Font-face declaration for custom font 'pixel' */
+  @font-face {
+    font-family: 'pixel';
+    src: url(../font/PixelSymtext-eYmn.ttf);
+  }
+/* Reset styles for various HTML elements */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Extended base styles (site specific)*/
+
+html { 
+	overflow-y: scroll; /* always force a scrollbar in non-IE */
+	}
+body {
+	background: #000000;
+	overflow-x: hidden;
+	height: 4250px;
+	line-height: 1.5;
+	color: #ffffff;
+	font-size: 14px;
+	font-family: Arial,sans-serif,'pixel';
+}
+h1 {
+	font-family: 'pixel';
+	color: #830a0a;
+	
+}
+/* Styling for hyperlinks */
+a, a:link,
+a:active,
+a:visited {
+	-webkit-transition: color 0.25s ease-out;
+	-moz-transition: color 0.25s ease-out;
+	-o-transition: color 0.25s ease-out;
+	transition: color 0.25s ease-out;
+	color:#830a0a;
+	outline: none;
+	text-decoration:none;
+	}
+	
+/* Hover effect for hyperlinks */
+	a:hover { 
+		
+		color:#ffffff;
+		}
+img { 
+	display:block;
+	}
+p {
+	margin:1em 0;
+	}
+
+/* Common shared styles */
+
+hr {
+	margin: 0;
+	border: none;
+	border-top: 1px solid #ffffff;
+	border-bottom: 1px solid #ffffff;
+	height: 3px;
+}
+
+/* Page structure */
+
+#wrapper {
+	position: relative;
+}
+#branding {
+	width: 100%;
+	background: #000000;
+	}
+	#branding h1 {
+		width: 940px;
+		padding: 10px 15px;
+		margin: 0 auto;
+		text-transform: uppercase;
+		font-size: 36px;
+		font-family: 'pixel';
+		font-weight: 500px;
+		}
+
+/* Navigation styles */
+
+nav#primary {
+	z-index: 5;
+	position: fixed;
+	top: 50%;
+	right: 16px;
+	margin-top: -40px;
+}
+nav#primary li {
+	position: relative;
+	height: 20px;
+}
+nav#primary a {
+	display: block;
+	width: 20px;
+	height: 20px;
+	text-indent: -9999px;
+	background: transparent url('../img/nav-dot.png') 4px 4px no-repeat;
+}
+/* Navigation link styles on hover and when active */
+nav#primary a:hover, nav#primary a.active {
+	background: transparent url('../img/nav-dot.png') 4px -16px no-repeat;
+}
+nav#primary h1 {
+	position: absolute;
+	right: 22px;
+	top: -7px;
+	display: none;
+	padding: 4px 20px 4px 7px;;
+	color: #fff;
+	white-space: nowrap;
+	background: transparent url('../img/nav-arrow.png') 100% 50% no-repeat;
+	}
+	/* Navigation styles for next and previous links */
+nav.next-prev {
+	margin: 20px 0 0 0;
+	}
+	a.prev,
+	a.next {
+		display: block;
+		width: 15px;
+		height: 11px;
+		text-indent: -9999px;
+		}
+		/* Styles for previous link */
+	a.prev {
+		margin: 0 auto 5px auto;
+		background: transparent url('../img/scroll-arrow-up.png') 0 0 no-repeat;
+		}
+		/* Hover effect for previous link */
+
+		a.prev:hover {
+			background: transparent url('../img/scroll-arrow-up.png') 0 -11px no-repeat;
+			}
+			/* Styles for next link */
+	a.next {
+		margin: 5px auto 0 auto;
+		background: transparent url('../img/scroll-arrow-down.png') -1px 0 no-repeat;
+		}
+		/* Hover effect for next link */
+		a.next:hover {
+			background: transparent url('../img/scroll-arrow-down.png') -1px -11px no-repeat;
+			}
+
+/* Parallax styles */
+
+/* Content section */
+#content {
+	z-index: 4;
+	position: relative;
+	max-width: 940px;
+	padding: 0 10px;
+	margin: 0 auto;
+	line-height: 1.7;
+	}
+	#content article {
+		width: 300px;
+		}
+		/* Styling for each article section with padding */
+		#The-protagonist,
+		#The-Alien-Star,
+		#Destiny,
+		#About {
+			padding-top: 105px;
+			}
+			/* Absolute positioning for each article section */
+		#The-protagonist {
+			position: absolute;
+			top: 0px;
+			}
+		#The-Alien-Star {
+			position: absolute;
+			top: 1090px;
+			}
+		#Destiny {
+			position: absolute;
+			top: 2180px;
+			}
+			/* Heading styles within each article section */
+			#content h1 {
+				margin: 0 0 25px 0;
+				font-size: 60px;
+				font-family: 'pixel';
+				color: #fff;
+				font-weight: 500px;
+				line-height: 65px;
+				}
+		#About {
+			position: absolute;
+			top: 3270px;
+			}
+/* foreground */
+#parallax-bg3 {
+	z-index: 3;
+	position: fixed;
+	left: 50%; /* align left edge with center of viewport */
+	top: 0;
+	width: 940px;
+	margin-left: -470px; /* move left by half element's width */
+	}
+
+	#bg3-1 {
+		position: absolute;
+		top: -111px;
+		left: 400px;
+		}
+	#bg3-2 {
+		position: absolute;
+		top: 812px;
+		left: 480px;
+		}
+	#bg3-3 {
+		position: absolute;
+		top: 1628px;
+		left: 500px;
+		}
+	#bg3-4 {
+		position: absolute;
+		top: 2700px;
+		left: -85px;
+		}
